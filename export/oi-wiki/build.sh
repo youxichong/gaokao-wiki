@@ -14,8 +14,10 @@ echo "📄 Compiling PDF with xelatex..."
 mkdir -p ../../export-output
 
 # Run xelatex twice for TOC and cross-references
+# Use || true because xelatex can return non-zero on non-fatal errors
+# (e.g. minted env fallback via fancyvrb, font substitutions)
 xelatex -interaction=nonstopmode -output-directory=../../export-output template.tex || true
-xelatex -interaction=nonstopmode -output-directory=../../export-output template.tex
+xelatex -interaction=nonstopmode -output-directory=../../export-output template.tex || true
 
 PDF_PATH="../../export-output/template.pdf"
 if [ -f "$PDF_PATH" ]; then

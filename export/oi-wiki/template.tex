@@ -19,6 +19,10 @@
 \usepackage{titlesec}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{caption}
+\usepackage{fancyvrb}
+% Provide minted compatibility via fancyvrb (remark-latex generates minted env)
+\newenvironment{minted}[1]{\Verbatim}{\endVerbatim}
+\newcommand{\mintedinline}[2]{\texttt{#2}}
 
 % Redefine section levels to avoid conflicts with details environment
 \makeatletter
