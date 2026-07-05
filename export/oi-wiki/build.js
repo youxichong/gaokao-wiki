@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import remarkDetails from "remark-details";
 import remarkTabbed from "remark-tabbed";
 import remarkFootnotes from "remark-footnotes";
+import { visit } from "unist-util-visit";
 import latex from "remark-latex";
 import { read, writeSync } from "to-vfile";
 import { load } from "js-yaml";
@@ -55,6 +56,18 @@ async function convertMarkdown(filename, depth) {
 
   console.log(`Processing: ${filename}`);
 
+  // Flatten custom container/summary nodes (from remark-details, remark-tabbed)
+  // into plain paragraphs so remark-latex can compile them.
+  function flattenContainers() {
+    return (tree) => {
+      visit(tree, ["detailsContainer", "tabbedContainer", "detailsContainerSummary"], (node, index, parent) => {
+        if (!parent || index == null) return;
+        parent.children.splice(index, 1, ...node.children);
+        return index;
+      });
+    };
+  }
+
   await unified()
     .use(remarkParse)
     .use(remarkMath)
@@ -62,6 +75,7 @@ async function convertMarkdown(filename, depth) {
     .use(remarkDetails)
     .use(remarkTabbed)
     .use(remarkFootnotes)
+    .use(flattenContainers)
     .use(latex, {
       prefix: filename.replace(prefixRegEx, "").replace(/md$/, ""),
       depth: depth,
