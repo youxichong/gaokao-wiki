@@ -12,7 +12,7 @@
 | [角与弧度制](angle-radian.md) | 无 | 任意角、弧度制、弧长公式 | 基础工具 |
 | [定义与性质](definition.md) | [角与弧度制](angle-radian.md) | 三角函数定义、符号规律、诱导公式 | 选填基础 |
 | [恒等变换](identity.md) | [定义](definition.md) | 两角和差、二倍角、辅助角公式 | 解答题必用 |
-| [解三角形](triangle.md) | [恒等变换](identity.md) | 正弦定理、余弦定理、面积公式 | 解答题 10 分 |
+| [解三角形](triangle.md) | [定义](definition.md)、[恒等变换](identity.md) | 正弦定理、余弦定理、面积公式 | 解答题 10 分 |
 
 ## 学习路径
 

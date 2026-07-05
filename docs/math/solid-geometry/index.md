@@ -11,7 +11,7 @@
 |--------|----------|----------|----------|
 | [空间几何体](geometric-body.md) | 无 | 柱、锥、台、球的结构与体积表面积 | 选填基础题 |
 | [点线面位置关系](position-relation.md) | [空间几何体](geometric-body.md) | 平行、垂直的判定与性质 | 证明题基础 |
-| [空间向量与立体几何](space-vector.md) | [平面向量](../vector/index.md) | 空间坐标、法向量、线面角、二面角 | 解答题核心工具 |
+| [空间向量与立体几何](space-vector.md) | [平面向量](../vector/index.md)、[点线面位置关系](position-relation.md) | 空间坐标、法向量、线面角、二面角 | 解答题核心工具 |
 | [空间角与距离](angle-distance.md) | [空间向量](space-vector.md) | 异面直线角、线面角、二面角、点面距 | 解答题高频 |
 
 ## 学习路径
