@@ -25,14 +25,49 @@
 
 ### 学习路径图
 
-```text
-集合/逻辑 --→ 函数 --→ 导数 --┬--→ 解析几何
-            │                  │
-不等数 ------┘                  └──→ 数列
+```mermaid
+graph LR
+  subgraph A[基础]
+    Set[集合]
+    Logic[常用逻辑]
+    Ineq[不等式]
+    Complex[复数]
+  end
 
-三角函数 --→ 解三角形 --→ 向量 --→ 立体几何（空间向量）
+  subgraph F[函数主线]
+    Func[函数概念与性质]
+    ExpLog[指数与对数]
+    Zero[函数零点]
+    Deriv[导数]
+  end
 
-计数原理 --→ 概率 --→ 随机变量 --→ 统计回归
+  subgraph G[几何主线]
+    Trig[三角函数]
+    Triangle[解三角形]
+    Vector[平面向量]
+    Solid[立体几何]
+    Analytic[解析几何]
+    Conic[圆锥曲线]
+  end
+
+  subgraph P[概率统计主线]
+    Count[计数原理]
+    Prob[古典概型]
+    Cond[条件概率]
+    RV[随机变量]
+    Stat[统计与回归]
+  end
+
+  Set --> Logic --> Func
+  Set --> Ineq --> Func
+  Func --> ExpLog --> Zero --> Deriv
+  Deriv --> Analytic
+  Deriv --> Sequence[数列]
+
+  Trig --> Triangle --> Vector --> Solid
+  Vector --> Analytic --> Conic
+
+  Count --> Prob --> Cond --> RV --> Stat
 ```
 
 > 📋 强基数学已覆盖部分函数专题 → [强基数学](../advanced-math/index.md)
